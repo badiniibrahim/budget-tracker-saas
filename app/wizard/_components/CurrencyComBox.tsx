@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/popover";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { Currencies, Currency } from "@/constants";
-import {  useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 export function CurrencyComBox() {
   const [open, setOpen] = React.useState(false);
@@ -32,6 +32,8 @@ export function CurrencyComBox() {
     queryKey: ["userSettings"],
     queryFn: () => fetch("/api/user-settings").then((res) => res.json()),
   });
+
+  console.log(userSettings);
 
   if (isDesktop) {
     return (
